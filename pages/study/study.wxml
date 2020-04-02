@@ -1,0 +1,19 @@
+<!--pages/study/study.wxml-->
+<!--pages/study/study.wxml-->
+<view class="study-container">
+	<view class="study-item" wx:for="{{studyList}}" wx:key="*this">
+		<image src="{{item.icon}}" alt="" />
+		<view class="meta">
+			<text class="title">{{item.title}}</text>
+			<text class="progress">已学习{{item.study_hour}}课时/{{item.total_hour || 0}}课时</text>
+		</view>
+
+		<van-circle size="80" stroke-width="4" value="{{ item.study_progress}}">
+			<text class="item_text"> {{item.study_progress}}</text>
+		</van-circle>
+
+	</view>
+	<view wx:if="{{isEmpty}}">
+		<text class="no-study-tip">您还没有任何学习记录哦，赶快去学习吧~</text>
+	</view>
+</view>

@@ -1,0 +1,48 @@
+<!--pages/home/home.wxml-->
+<view class="home-container">
+	<!-- 搜索框 -->
+	<search_Bar placeholder="请输入搜索课程"></search_Bar>
+	<!-- 轮播图 -->
+	<swiper autoplay circular indicator-active-color="#fff" interval="{{3000}}">
+		<navigator url="/pages/course-detail/course-detail?id={{item.course_id}}" wx:for="{{LBT}}" wx:key="*this">
+			<swiper-item>
+				<image src="{{item.img_url}}"></image>
+			</swiper-item>
+		</navigator>
+
+
+	</swiper>
+	<!-- 推荐课程 -->
+	<view>
+		<view class="tips">
+			<text class="tip">推荐课程</text>
+			<navigator url="../course/course" open-type="switchTab">
+				<image src="/assets/images/arrow@2x.png" alt="" />
+			</navigator>
+
+		</view>
+		<scroll-view scroll-x class="course-container">
+
+			<navigator class="course-item" wx:for="{{KCSJ}}" wx:key="*this" url="/pages/course-detail/course-detail?id={{item.relation_id}}" >
+				<image src="{{item.icon}}" alt="" />
+			</navigator>
+
+
+		</scroll-view>
+	</view>
+	<!-- 热门视频 -->
+	<view>
+		<view class="tips">
+			<text class="tip">热门视频</text>
+			<image src="/assets/images/arrow@2x.png" alt="" />
+		</view>
+		<view class="hot-video">
+
+			<view class="video-item" wx:for="{{HotVideo}}" wx:key="*this">
+				<image src="{{item.cover_photo_url}}" alt="" />
+				<text class="title">{{item.name}}</text>
+				<text class="subtitle">{{item.view_count}}人已观看</text>
+			</view>
+		</view>
+	</view>
+</view>

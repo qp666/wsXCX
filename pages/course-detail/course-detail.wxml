@@ -1,0 +1,7 @@
+<!--pages/course-detail/course-detail.wxml-->
+<view>
+<text>
+我是传过来的值/////{{list.course.title}}/////
+</text>
+
+</view>
